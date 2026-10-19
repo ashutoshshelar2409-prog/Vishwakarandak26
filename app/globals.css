@@ -1,89 +1,422 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,500;0,600;0,700;1,700&family=Orbitron:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #07070a;
-  --foreground: #f4f4f5;
-  --marvel: #e62429;
+  --font-bankgothic: "BankGothic Md BT Medium", "BankGothic Md BT", "Bank Gothic", "BankGothic", "Orbitron", "Chakra Petch", sans-serif;
+  --font-display: var(--font-bankgothic);
+  --font-sans: var(--font-inter, 'Inter', sans-serif);
+  
+  --background: #040509;
+  --foreground: #f8fafc;
+  --surface: #0a0d17;
+  --surface-panel: #0f1422;
+  --marvel: #ff2a4b;
+  --marvel-dark: #b91c1c;
+  --gold: #ffd700;
+  --gold-glow: rgba(255, 215, 0, 0.4);
+  --portal-cyan: #00f0ff;
+  --cyan-glow: rgba(0, 240, 255, 0.45);
+  --quantum-purple: #a855f7;
+  --purple-glow: rgba(168, 85, 247, 0.45);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-panel: var(--surface-panel);
   --color-marvel: var(--marvel);
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-bebas);
+  --color-gold: var(--gold);
+  --color-portal-cyan: var(--portal-cyan);
+  --color-quantum-purple: var(--quantum-purple);
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-bankgothic);
 }
 
-html.lenis,
-html.lenis body {
-  height: auto;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   overflow-x: hidden;
+  font-family: var(--font-sans);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* BankGothic Typography Enforcement */
+h1, h2, h3, h4, h5, h6,
+.font-display,
+.comic-sfx,
+.comic-sfx-cyan,
+.issue-badge,
+.comic-stamp {
+  font-family: var(--font-bankgothic) !important;
+  letter-spacing: 0.06em;
+}
+
+/* Accessibility Focus Visible */
+*:focus-visible {
+  outline: 2px solid var(--portal-cyan);
+  outline-offset: 3px;
 }
 
 ::selection {
   background: var(--marvel);
-  color: white;
+  color: #ffffff;
 }
 
 /* Comic halftone dots */
-.halftone {
+.halftone-dots {
   background-image: radial-gradient(
-    rgba(255, 255, 255, 0.09) 1px,
+    rgba(255, 255, 255, 0.08) 1.2px,
     transparent 1.2px
   );
-  background-size: 9px 9px;
+  background-size: 10px 10px;
 }
 
-/* Film grain overlay */
-.grain::after {
-  content: "";
-  position: fixed;
-  inset: -50%;
-  pointer-events: none;
-  z-index: 60;
-  opacity: 0.06;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-  animation: grain 1.2s steps(6) infinite;
+.halftone-dots-dense {
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.14) 1.5px,
+    transparent 1.5px
+  );
+  background-size: 8px 8px;
 }
 
-@keyframes grain {
-  0% { transform: translate(0, 0); }
-  20% { transform: translate(-3%, 2%); }
-  40% { transform: translate(2%, -3%); }
-  60% { transform: translate(-2%, -1%); }
-  80% { transform: translate(3%, 3%); }
-  100% { transform: translate(0, 0); }
+.halftone-cyan {
+  background-image: radial-gradient(
+    rgba(0, 240, 255, 0.15) 1.5px,
+    transparent 1.5px
+  );
+  background-size: 8px 8px;
 }
 
-/* Comic panel card */
+.halftone-red {
+  background-image: radial-gradient(
+    rgba(255, 42, 75, 0.2) 1.5px,
+    transparent 1.5px
+  );
+  background-size: 8px 8px;
+}
+
+.halftone-gold {
+  background-image: radial-gradient(
+    rgba(255, 215, 0, 0.18) 1.5px,
+    transparent 1.5px
+  );
+  background-size: 8px 8px;
+}
+
+/* Speed Lines */
+.comic-speed-lines {
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 14px,
+    rgba(255, 255, 255, 0.03) 14px,
+    rgba(255, 255, 255, 0.03) 16px
+  );
+}
+
+/* Comic Panels with Authentic Hard Offset Drop-Shadows */
+.comic-panel,
 .panel {
-  border: 2px solid rgba(255, 255, 255, 0.85);
+  border: 2px solid rgba(255, 255, 255, 0.9);
   box-shadow: 6px 6px 0 0 var(--marvel);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.text-stroke {
-  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.85);
+.comic-panel:hover,
+.panel:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 10px 10px 0 0 var(--marvel);
+}
+
+.comic-panel-gold {
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 6px 6px 0 0 var(--gold);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.comic-panel-gold:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 10px 10px 0 0 var(--gold);
+}
+
+.comic-panel-cyan {
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 6px 6px 0 0 var(--portal-cyan);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.comic-panel-cyan:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 10px 10px 0 0 var(--portal-cyan);
+}
+
+.comic-panel-purple {
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 6px 6px 0 0 var(--quantum-purple);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.comic-panel-purple:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 10px 10px 0 0 var(--quantum-purple);
+}
+
+/* Comic Action Sounds (Typography) */
+.comic-sfx {
+  font-family: var(--font-bankgothic) !important;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: var(--gold);
+  -webkit-text-stroke: 1.5px #000000;
+  text-shadow: 3px 3px 0 #ff2a4b;
+  display: inline-block;
+  transform: rotate(-3deg);
+  transition: transform 0.2s ease;
+}
+
+.comic-sfx:hover {
+  transform: rotate(2deg) scale(1.08);
+}
+
+.comic-sfx-cyan {
+  font-family: var(--font-bankgothic) !important;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: var(--portal-cyan);
+  -webkit-text-stroke: 1.5px #000000;
+  text-shadow: 3px 3px 0 #0055ff;
+  display: inline-block;
+  transform: rotate(2deg);
+}
+
+/* Comic Text Stroke Utilities */
+.text-stroke-marvel {
+  -webkit-text-stroke: 2px var(--marvel);
   color: transparent;
 }
 
-@keyframes marquee {
+.text-stroke-cyan {
+  -webkit-text-stroke: 2px var(--portal-cyan);
+  color: transparent;
+}
+
+.text-stroke-gold {
+  -webkit-text-stroke: 2px var(--gold);
+  color: transparent;
+}
+
+.text-stroke-white {
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.9);
+  color: transparent;
+}
+
+/* Issue Badges */
+.issue-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--marvel);
+  color: #ffffff;
+  font-family: var(--font-bankgothic) !important;
+  font-size: 0.875rem;
+  letter-spacing: 0.2em;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 3px 3px 0 0 #000000;
+  text-transform: uppercase;
+}
+
+.comic-stamp {
+  display: inline-block;
+  border: 2px solid var(--gold);
+  color: var(--gold);
+  font-family: var(--font-bankgothic) !important;
+  letter-spacing: 0.15em;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.75rem;
+  transform: rotate(-2deg);
+}
+
+/* Scroll Card Entrance & 3D Tilt Animations */
+@keyframes card-scroll-float {
+  0% {
+    opacity: 0.85;
+    transform: translateY(18px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.scroll-card-animated {
+  animation: card-scroll-float 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+/* Infinity Stones Sockets in Gauntlet */
+.stone-glow-power {
+  filter: drop-shadow(0 0 16px #a855f7) drop-shadow(0 0 30px #a855f7);
+  animation: stone-pulse 1.8s ease-in-out infinite;
+}
+
+.stone-glow-space {
+  filter: drop-shadow(0 0 16px #3b82f6) drop-shadow(0 0 30px #3b82f6);
+  animation: stone-pulse 2s ease-in-out infinite 0.3s;
+}
+
+.stone-glow-reality {
+  filter: drop-shadow(0 0 16px #ef4444) drop-shadow(0 0 30px #ef4444);
+  animation: stone-pulse 1.9s ease-in-out infinite 0.6s;
+}
+
+.stone-glow-soul {
+  filter: drop-shadow(0 0 16px #f97316) drop-shadow(0 0 30px #f97316);
+  animation: stone-pulse 2.2s ease-in-out infinite 0.9s;
+}
+
+.stone-glow-time {
+  filter: drop-shadow(0 0 16px #10b981) drop-shadow(0 0 30px #10b981);
+  animation: stone-pulse 2.1s ease-in-out infinite 1.2s;
+}
+
+.stone-glow-mind {
+  filter: drop-shadow(0 0 24px #ffd700) drop-shadow(0 0 45px #ffd700);
+  animation: stone-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes stone-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+/* Iron Man Jet Thruster Flames */
+@keyframes thruster-flame {
+  0%, 100% {
+    transform: scaleY(0.9) scaleX(0.95);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scaleY(1.3) scaleX(1.1);
+    opacity: 1;
+    filter: drop-shadow(0 0 25px #00f0ff);
+  }
+}
+
+.animate-thruster {
+  animation: thruster-flame 0.2s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+/* Repulsor Laser Blast Beam */
+@keyframes laser-blast {
+  0% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  40% {
+    opacity: 1;
+    transform: scaleX(1);
+    filter: drop-shadow(0 0 30px #00f0ff) drop-shadow(0 0 60px #ffffff);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleX(1);
+  }
+}
+
+.animate-laser {
+  animation: laser-blast 0.6s ease-out forwards;
+  transform-origin: left center;
+}
+
+/* Gauntlet Snap Cosmic Shockwave */
+@keyframes cosmic-shockwave {
+  0% {
+    transform: scale(0.2);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+
+.animate-shockwave {
+  animation: cosmic-shockwave 1.4s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+/* Portal & Movement Animations */
+@keyframes portal-spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes portal-spin-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes web-swing {
+  0% { transform: rotate(-15deg) translateY(-5px); }
+  50% { transform: rotate(15deg) translateY(10px); }
+  100% { transform: rotate(-15deg) translateY(-5px); }
+}
+
+.animate-portal-slow { animation: portal-spin-slow 60s linear infinite; }
+.animate-portal-reverse { animation: portal-spin-reverse 45s linear infinite; }
+.animate-float-gentle { animation: float-gentle 4s ease-in-out infinite; }
+.animate-web-swing { animation: web-swing 3s ease-in-out infinite; transform-origin: top center; }
+
+/* Marquee */
+@keyframes marquee-scroll {
+  from { transform: translateX(0%); }
   to { transform: translateX(-50%); }
 }
-.animate-marquee {
-  animation: marquee 30s linear infinite;
+
+.animate-marquee-slow {
+  animation: marquee-scroll 32s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .grain::after,
-  .animate-marquee {
-    animation: none;
+  .animate-portal-slow,
+  .animate-portal-reverse,
+  .animate-float-gentle,
+  .animate-web-swing,
+  .animate-marquee-slow,
+  .stone-glow-power,
+  .stone-glow-space,
+  .stone-glow-reality,
+  .stone-glow-soul,
+  .stone-glow-time,
+  .stone-glow-mind,
+  .animate-thruster {
+    animation: none !important;
   }
 }

@@ -8,27 +8,58 @@ import Footer from "@/components/Footer";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const bebas = Bebas_Neue({
   variable: "--font-bebas",
   weight: "400",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Vishwakarandak'26",
+  title: "Vishwakarandak 2026 · Apex of Infinity | VIT Pune",
   description:
-    "VIT Pune's Annual Sports & Cultural Fest - Vishwakarandak 2026: Marvel edition",
+    "Official frontend design proposal for Vishwakarandak 2026, the flagship annual sports, technical, and cultural festival of Vishwakarma Institute of Technology (VIT Pune). Official Theme: Apex of Infinity — MCU.",
+  keywords: [
+    "Vishwakarandak",
+    "VIT Pune",
+    "Apex of Infinity",
+    "Student Council VIT Pune",
+    "College Festival",
+    "Marvel Cinematic Universe",
+    "Pune Engineering Fest",
+  ],
+  authors: [{ name: "Student Council VIT Pune Website Team" }],
+  icons: {
+    icon: "/images/council-logo.png",
+    shortcut: "/images/council-logo.png",
+    apple: "/images/council-logo.png",
+  },
+  openGraph: {
+    title: "Vishwakarandak 2026 · Apex of Infinity | VIT Pune",
+    description:
+      "Interactive comic-book journey through the multiversal college festival of Vishwakarma Institute of Technology, Pune.",
+    type: "website",
+    locale: "en_IN",
+  },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" className={`${inter.variable} ${bebas.variable} antialiased`}>
-      <body className="grain min-h-screen font-sans">
+      <head>
+        <link rel="icon" href="/images/council-logo.png" type="image/png" />
+      </head>
+      <body className="min-h-screen font-sans bg-background text-foreground">
         <SmoothScroll />
         <Navbar />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
       </body>
     </html>

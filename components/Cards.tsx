@@ -95,7 +95,7 @@ export function RulebookCard({
 }) {
   return (
     <article
-      className="group relative flex flex-col overflow-hidden border-2 border-white/80 bg-zinc-950 p-7 transition hover:-translate-y-2"
+      className="scroll-card-animated group relative flex flex-col overflow-hidden border-2 border-white/80 bg-zinc-950 p-7 transition-all duration-300 hover:-translate-y-3 hover:scale-[1.01]"
       style={{ boxShadow: `8px 8px 0 0 ${accent}` }}
     >
       <div className="halftone absolute inset-0 opacity-50" aria-hidden />
