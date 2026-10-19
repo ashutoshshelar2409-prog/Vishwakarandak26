@@ -90,12 +90,12 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation Links */}
-        <ul className="hidden items-center gap-5 xl:gap-7 lg:flex">
+        <ul className="hidden items-center gap-3 xl:gap-5 lg:flex">
           {navLinks.map((l) => (
             <li key={l.href}>
               <Link
                 href={l.href}
-                className="font-display text-base tracking-widest text-white/80 transition-all hover:text-gold hover:drop-shadow-[0_0_8px_rgba(255,215,0,0.6)]"
+                className="font-display text-xs xl:text-sm tracking-wider text-white/80 transition-all hover:text-gold whitespace-nowrap hover:drop-shadow-[0_0_8px_rgba(255,215,0,0.6)]"
               >
                 {l.label}
               </Link>

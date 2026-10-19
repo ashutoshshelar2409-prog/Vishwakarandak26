@@ -26,16 +26,16 @@ export default function Countdown() {
   const entries = Object.entries(time ?? { Days: 0, Hours: 0, Mins: 0, Secs: 0 });
 
   return (
-    <div className="flex gap-3 md:gap-4" aria-label="Countdown to Vishwakarandak">
+    <div className="flex gap-2.5 sm:gap-3 md:gap-4 justify-center" aria-label="Countdown to Vishwakarandak">
       {entries.map(([label, value]) => (
         <div
           key={label}
-          className="panel flex w-16 flex-col items-center bg-black/70 py-2 md:w-20"
+          className="panel flex w-14 sm:w-16 md:w-20 flex-col items-center bg-black/80 py-2 border-2 border-white/60 shadow-[3px_3px_0_0_#ff2a4b]"
         >
-          <span className="font-display text-3xl tabular-nums md:text-4xl">
+          <span className="font-display text-2xl sm:text-3xl tabular-nums md:text-4xl text-white">
             {time ? String(value).padStart(2, "0") : "--"}
           </span>
-          <span className="text-[10px] uppercase tracking-[0.2em] text-white/60">{label}</span>
+          <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.2em] text-white/60">{label}</span>
         </div>
       ))}
     </div>

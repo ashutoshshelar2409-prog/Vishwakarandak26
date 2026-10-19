@@ -82,33 +82,33 @@ export default function Hero() {
         </div>
 
         {/* Presenter Headline */}
-        <p className="font-display text-sm uppercase tracking-[0.45em] text-white/70 sm:text-base md:text-lg mb-2">
+        <p className="font-display text-xs uppercase tracking-[0.3em] text-white/70 sm:text-sm mb-2">
           VIT Pune Student Council presents
         </p>
 
         {/* Main Title Lockup */}
-        <div className="relative my-2 inline-block">
+        <div className="relative my-3 max-w-full px-2">
           {/* Authentic Comic Red Block */}
-          <div className="relative border-4 border-white bg-marvel px-4 py-2 sm:px-8 sm:py-3 shadow-[8px_8px_0_0_#000,0_0_80px_rgba(230,36,41,0.65)] transform -rotate-1">
-            <h1 className="font-display text-6xl leading-[0.85] tracking-tight text-white sm:text-8xl md:text-9xl lg:text-[10rem]">
+          <div className="relative inline-block border-3 sm:border-4 border-white bg-marvel px-5 py-2 sm:px-8 sm:py-3 shadow-[6px_6px_0_0_#000,0_0_60px_rgba(230,36,41,0.5)] transform -rotate-1 max-w-full">
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-normal text-white uppercase break-normal">
               VISHWAKARANDAK
             </h1>
           </div>
 
           {/* Infinity Sub-Badge */}
-          <div className="absolute -bottom-5 right-2 sm:right-6 border-2 border-black bg-gold px-3 py-1 shadow-[4px_4px_0_0_#000] transform rotate-2">
-            <p className="font-display text-xl sm:text-2xl lg:text-3xl tracking-widest text-black font-extrabold">
+          <div className="absolute -bottom-3.5 right-2 sm:right-6 border-2 border-black bg-gold px-2.5 py-0.5 sm:px-3 sm:py-1 shadow-[3px_3px_0_0_#000] transform rotate-2">
+            <p className="font-display text-xs sm:text-sm md:text-base tracking-widest text-black font-extrabold">
               APEX OF INFINITY
             </p>
           </div>
         </div>
 
         {/* Thematic Subtitle & Tagline */}
-        <div className="mt-8 max-w-2xl">
-          <p className="font-display text-2xl tracking-wide text-white/95 sm:text-3xl md:text-4xl">
-            Where Students Turn into <span className="text-gold underline decoration-marvel decoration-4">Superheroes</span>
+        <div className="mt-6 max-w-xl sm:max-w-2xl px-2">
+          <p className="font-display text-xl sm:text-2xl md:text-3xl tracking-wide text-white/95">
+            Where Students Turn into <span className="text-gold underline decoration-marvel decoration-2 sm:decoration-4">Superheroes</span>
           </p>
-          <p className="mt-2 text-sm sm:text-base text-white/75 leading-relaxed">
+          <p className="mt-2 text-xs sm:text-sm md:text-base text-white/75 leading-relaxed">
             Seven departmental dynasties. One shattered timeline. The ultimate collegiate arena of
             technology, athletic dominance, and cultural spectacle at Vishwakarma Institute of Technology, Pune.
           </p>

@@ -1506,13 +1506,13 @@ export const scores = [
 ];
 
 export const navLinks = [
-  { href: "#story-spiderman", label: "01 Web Swing" },
-  { href: "#story-ironman", label: "02 Iron Man HUD" },
-  { href: "#story-thanos", label: "03 The Snap" },
-  { href: "#official-events", label: "04 Official Events" },
-  { href: "#vierp-guide", label: "05 VIERP Pay" },
-  { href: "#multiverse-houses", label: "06 7 Houses" },
-  { href: "#final-issue", label: "07 Finale" },
+  { href: "#story-spiderman", label: "Web Swing" },
+  { href: "#story-ironman", label: "Iron Man" },
+  { href: "#story-thanos", label: "Gauntlet" },
+  { href: "#official-events", label: "60+ Events" },
+  { href: "#vierp-guide", label: "VIERP Pay" },
+  { href: "#multiverse-houses", label: "7 Houses" },
+  { href: "#final-issue", label: "Finale" },
 ];
 
 export const pillars = [

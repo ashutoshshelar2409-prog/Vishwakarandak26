@@ -55,6 +55,12 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${bebas.variable} antialiased`}>
       <head>
         <link rel="icon" href="/images/council-logo.png" type="image/png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,500;0,600;0,700;1,700&family=Orbitron:wght@500;600;700;800;900&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <body className="min-h-screen font-sans bg-background text-foreground">
         <SmoothScroll />
